@@ -1,6 +1,6 @@
 # GitHub Repository Searcher
 ## Note:
-I am not adding my github access token so free usage is limited. This makes it easy to test. Also using docker to setup postgres 
+I am not adding my github access token so free usage is limited 60req/hour. This makes it easy to test. Also using docker to setup postgres 
 
 Spring Boot application that searches GitHub repositories and saves them to PostgreSQL database. Search by keywords/language, auto-saves results, provides filtering and sorting.
 
@@ -106,20 +106,4 @@ github:
 mvn test              # Run tests with H2
 mvn clean compile     # Check compilation
 mvn spring-boot:run   # Start with PostgreSQL
-```
-
-## Common Issues
-
-- **Connection refused**: Check if PostgreSQL is running with `docker ps`
-- **Port conflicts**: Verify ports 5432 and 8080 are available
-- **GitHub rate limits**: 60 requests/hour for unauthenticated requests
-
-## Export Data
-
-```bash
-# Export to CSV
-docker exec -it github-repos-postgres psql -U postgres -d github_repos -c "
-COPY (SELECT name, owner_name, programming_language, stars_count, forks_count 
-      FROM repositories ORDER BY stars_count DESC) 
-TO STDOUT WITH CSV HEADER" > repositories.csv
 ```
