@@ -1,0 +1,56 @@
+### GitHub Repository Searcher API Examples
+
+### 1. Search GitHub repositories for Spring Boot in Java
+POST http://localhost:8080/api/github/search
+Content-Type: application/json
+
+{
+  "query": "spring boot",
+  "language": "Java",
+  "sort": "stars"
+}
+
+### 2. Search for React repositories
+POST http://localhost:8080/api/github/search
+Content-Type: application/json
+
+{
+  "query": "react",
+  "language": "JavaScript", 
+  "sort": "forks"
+}
+
+### 3. Search for Machine Learning repositories in Python
+POST http://localhost:8080/api/github/search
+Content-Type: application/json
+
+{
+  "query": "machine learning",
+  "language": "Python",
+  "sort": "updated"
+}
+
+### 4. Get all stored repositories
+GET http://localhost:8080/api/github/repositories
+
+### 5. Get repositories filtered by language
+GET http://localhost:8080/api/github/repositories?language=Java
+
+### 6. Get repositories with minimum stars
+GET http://localhost:8080/api/github/repositories?minStars=1000
+
+### 7. Get repositories with combined filters
+GET http://localhost:8080/api/github/repositories?language=Java&minStars=500&sort=forks
+
+### 8. Get repositories sorted by update date
+GET http://localhost:8080/api/github/repositories?sort=updated
+
+### 9. Invalid request example (should return validation error)
+POST http://localhost:8080/api/github/search
+Content-Type: application/json
+
+{
+  "query": "",
+  "language": "Java",
+  "sort": "invalid"
+} 
