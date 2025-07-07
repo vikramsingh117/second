@@ -1,4 +1,6 @@
 # GitHub Repository Searcher
+## Note:
+I am not adding my github access token so free usage is limited. This makes it easy to test. Also using docker to setup postgres 
 
 Spring Boot application that searches GitHub repositories and saves them to PostgreSQL database. Search by keywords/language, auto-saves results, provides filtering and sorting.
 
