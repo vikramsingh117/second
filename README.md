@@ -121,10 +121,3 @@ COPY (SELECT name, owner_name, programming_language, stars_count, forks_count
       FROM repositories ORDER BY stars_count DESC) 
 TO STDOUT WITH CSV HEADER" > repositories.csv
 ```
-
-## Next Steps
-
-1. Check `api-examples.http` for detailed API usage
-2. Search for repositories by different topics/languages  
-3. Use database queries to analyze collected data
-4. Export data for external analysis 
